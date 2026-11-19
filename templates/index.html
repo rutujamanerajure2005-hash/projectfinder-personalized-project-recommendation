@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ProjectFinder | Find Your Next Project</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Top Navigation -->
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            <span>ProjectFinder</span>
+        </div>
+
+        <div class="header-right">
+            <span class="workspace-label">Student Workspace</span>
+            <div class="user-avatar">R</div>
+        </div>
+    </header>
+
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+
+        <p class="sidebar-heading">MAIN MENU</p>
+
+        <a href="{{ url_for('home') }}"
+           class="menu-item active">
+            <span class="nav-icon">⌂</span>
+            <span>Home</span>
+        </a>
+
+        <a href="{{ url_for('profile') }}"
+           class="menu-item">
+            <span class="nav-icon">♙</span>
+            <span>My Profile</span>
+        </a>
+
+        <a href="{{ url_for('show_recommendations') }}"
+           class="menu-item">
+            <span class="nav-icon">✧</span>
+            <span>Recommended Projects</span>
+        </a>
+
+        <a href="{{ url_for('saved_projects') }}"
+           class="menu-item">
+            <span class="nav-icon">♡</span>
+            <span>Saved Projects</span>
+        </a>
+
+        <a href="{{ url_for('history') }}"
+           class="menu-item">
+            <span class="nav-icon">◷</span>
+            <span>History</span>
+        </a>
+
+        <p class="sidebar-heading sidebar-heading-bottom">
+            MANAGEMENT
+        </p>
+
+        <a href="{{ url_for('admin') }}"
+           class="menu-item">
+            <span class="nav-icon">⚙</span>
+            <span>Admin Dashboard</span>
+        </a>
+
+        <div class="sidebar-footer">
+            <div class="footer-icon">✦</div>
+            <p class="footer-title">Build something great</p>
+            <p class="footer-text">
+                Your next project is one idea away.
+            </p>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+
+            <div class="welcome-content">
+                <span class="eyebrow">
+                    YOUR PERSONAL PROJECT ASSISTANT
+                </span>
+
+                <h1>
+                    Turn your skills into
+                    <span class="gradient-text">great projects.</span>
+                </h1>
+
+                <p class="welcome-description">
+                    Discover projects tailored to your skills, interests,
+                    experience, and preferred technologies.
+                    Find your next opportunity to learn and build.
+                </p>
+
+                <a href="#recommendation-form"
+                   class="primary-link">
+                    Find My Projects
+                    <span>→</span>
+                </a>
+            </div>
+
+            <div class="welcome-illustration">
+                <div class="illustration-glow"></div>
+
+                <div class="illustration-card illustration-card-main">
+                    <div class="illustration-symbol">✦</div>
+                    <p class="illustration-label">YOUR NEXT IDEA</p>
+                    <h3>Imagine it.<br>Build it.</h3>
+                    <div class="illustration-line"></div>
+                    <div class="illustration-line short"></div>
+                </div>
+
+                <div class="floating-badge badge-top">
+                    <span>✧</span> Smart matching
+                </div>
+
+                <div class="floating-badge badge-bottom">
+                    <span>✓</span> Skill-based discovery
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Feature Cards -->
+        <section class="feature-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon icon-purple">✧</div>
+                <div>
+                    <h3>Personalized</h3>
+                    <p>Recommendations based on your profile.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-blue">⌘</div>
+                <div>
+                    <h3>Skill Matching</h3>
+                    <p>Explore projects that fit your abilities.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon icon-green">↗</div>
+                <div>
+                    <h3>Keep Growing</h3>
+                    <p>Discover skills you can learn next.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Recommendation Form -->
+        <section class="form-section" id="recommendation-form">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">LET'S GET STARTED</span>
+                    <h2>Find your perfect project</h2>
+                    <p>
+                        Share your preferences to discover projects
+                        that match your goals.
+                    </p>
+                </div>
+
+                <div class="form-heading-icon">✦</div>
+            </div>
+
+
+            <form action="{{ url_for('recommend') }}" method="POST">
+
+                <div class="form-grid">
+
+                    <!-- Skills -->
+                    <div class="form-group">
+                        <label for="skills">
+                            Your Skills
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="skills"
+                            name="skills"
+                            placeholder="e.g. Python, SQL, HTML, CSS"
+                            required
+                        >
+
+                        <small>Separate multiple skills with commas.</small>
+                    </div>
+
+
+                    <!-- Domain -->
+                    <div class="form-group">
+                        <label for="domain">Area of Interest</label>
+
+                        <select id="domain" name="domain">
+                            <option value="">Select your interest</option>
+                            <option value="ai_ml">
+                                Artificial Intelligence / ML
+                            </option>
+                            <option value="data_science">
+                                Data Science
+                            </option>
+                            <option value="web_development">
+                                Web Development
+                            </option>
+                            <option value="app_development">
+                                App Development
+                            </option>
+                            <option value="cybersecurity">
+                                Cybersecurity
+                            </option>
+                            <option value="cloud">
+                                Cloud Computing
+                            </option>
+                        </select>
+                    </div>
+
+
+                    <!-- Experience -->
+                    <div class="form-group">
+                        <label for="experience">Experience Level</label>
+
+                        <select id="experience" name="experience">
+                            <option value="">Select your level</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+
+
+                    <!-- Difficulty -->
+                    <div class="form-group">
+                        <label for="difficulty">Preferred Difficulty</label>
+
+                        <select id="difficulty" name="difficulty">
+                            <option value="">Select difficulty</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+
+
+                    <!-- Technologies -->
+                    <div class="form-group form-group-full">
+                        <label for="technologies">
+                            Technologies You Want to Use
+                        </label>
+
+                        <input
+                            type="text"
+                            id="technologies"
+                            name="technologies"
+                            placeholder="e.g. Flask, MySQL, Pandas, Scikit-learn"
+                        >
+
+                        <small>
+                            Enter the tools or technologies you want to practice.
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="form-footer">
+                    <p>
+                        <span class="privacy-icon">✦</span>
+                        Your preferences help personalize your results.
+                    </p>
+
+                    <button type="submit" class="submit-button">
+                        Get Recommendations
+                        <span>→</span>
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- Bottom Note -->
+        <footer class="page-footer">
+            <p>ProjectFinder · Discover. Learn. Build.</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

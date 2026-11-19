@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History - ProjectFinder</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        .history-container {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px #00000015;
+        }
+
+        .history-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 18px;
+            margin-top: 18px;
+        }
+
+        .history-card h3 {
+            margin-top: 0;
+            color: #2563eb;
+        }
+
+        .history-card p {
+            overflow-wrap: anywhere;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .empty-message {
+            padding: 20px 0;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="history-container">
+        <h1>Recommendation History</h1>
+        <p>View your previous project searches.</p>
+
+        {% if history_records %}
+            {% for record in history_records %}
+                <div class="history-card">
+                    <h3>Search #{{ record.id }}</h3>
+
+                    <p>
+                        <strong>Skills:</strong>
+                        {{ record.skills or 'Not specified' }}
+                    </p>
+
+                    <p>
+                        <strong>Domain:</strong>
+                        {{ record.domain or 'Not specified' }}
+                    </p>
+
+                    <p>
+                        <strong>Experience:</strong>
+                        {{ record.experience or 'Not specified' }}
+                    </p>
+
+                    <p>
+                        <strong>Difficulty:</strong>
+                        {{ record.difficulty or 'Not specified' }}
+                    </p>
+
+                    <p>
+                        <strong>Technologies:</strong>
+                        {{ record.technologies or 'Not specified' }}
+                    </p>
+
+                    <p>
+                        <strong>Recommended Projects:</strong>
+                        {{ record.recommended_projects or 'None' }}
+                    </p>
+
+                    <p>
+                        <strong>Date:</strong>
+                        {{ record.created_at }}
+                    </p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="empty-message">
+                No recommendation history found. Generate recommendations first.
+            </p>
+        {% endif %}
+
+        <a class="back-link"
+           href="{{ url_for('home') }}">← Back to Home</a>
+    </div>
+</body>
+</html>

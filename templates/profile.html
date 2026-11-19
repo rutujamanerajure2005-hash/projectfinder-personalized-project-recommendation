@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | ProjectFinder</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        /* Profile page layout */
+        .profile-page {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .profile-intro {
+            margin-bottom: 25px;
+        }
+
+        .profile-intro .eyebrow {
+            margin-bottom: 8px;
+        }
+
+        .profile-intro h1 {
+            margin: 0 0 8px;
+            font-size: 32px;
+        }
+
+        .profile-intro p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* Profile banner */
+        .profile-banner {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 27px 30px;
+            margin-bottom: 25px;
+            border: 1px solid #e0e7ff;
+            border-radius: 18px;
+            background: linear-gradient(120deg, #ffffff, #f0efff);
+        }
+
+        .profile-avatar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 75px;
+            width: 75px;
+            height: 75px;
+            border-radius: 22px;
+            color: white;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            font-size: 32px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px #6366f133;
+        }
+
+        .profile-banner h2 {
+            margin: 0 0 5px;
+            color: #1e293b;
+            font-size: 22px;
+        }
+
+        .profile-banner p {
+            margin: 0;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .profile-status {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            color: #4338ca;
+            background: #e0e7ff;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* Form card */
+        .profile-form-card {
+            padding: 30px;
+            border: 1px solid #e8edf5;
+            border-radius: 18px;
+            background: #ffffff;
+            box-shadow: 0 5px 20px #0f172a08;
+        }
+
+        .profile-form-heading {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eef2f7;
+        }
+
+        .profile-form-heading h2 {
+            margin: 0 0 7px;
+            color: #1e293b;
+            font-size: 22px;
+        }
+
+        .profile-form-heading p {
+            margin: 0;
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .profile-heading-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 45px;
+            width: 45px;
+            height: 45px;
+            border-radius: 13px;
+            color: #6366f1;
+            background: #eef2ff;
+            font-size: 23px;
+        }
+
+        .profile-message {
+            margin-bottom: 22px;
+            padding: 12px 15px;
+            border: 1px solid #bbf7d0;
+            border-radius: 10px;
+            color: #166534;
+            background: #f0fdf4;
+            font-size: 13px;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 23px 20px;
+        }
+
+        .profile-field {
+            min-width: 0;
+        }
+
+        .profile-field-full {
+            grid-column: 1 / -1;
+        }
+
+        .profile-field label {
+            display: block;
+            margin-bottom: 9px;
+            color: #334155;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .profile-field input,
+        .profile-field select,
+        .profile-field textarea {
+            display: block;
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            border: 1px solid #dbe3ef;
+            border-radius: 9px;
+            outline: none;
+            background: #ffffff;
+            color: #1e293b;
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .profile-field textarea {
+            min-height: 105px;
+            resize: vertical;
+            line-height: 1.7;
+        }
+
+        .profile-field input::placeholder,
+        .profile-field textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        .profile-field input:focus,
+        .profile-field select:focus,
+        .profile-field textarea:focus {
+            border-color: #818cf8;
+            box-shadow: 0 0 0 3px #6366f11c;
+        }
+
+        .profile-field small {
+            display: block;
+            margin-top: 7px;
+            color: #94a3b8;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .profile-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+            padding-top: 22px;
+            border-top: 1px solid #eef2f7;
+        }
+
+        .profile-actions button {
+            width: auto;
+            margin: 0;
+            padding: 13px 21px;
+            border-radius: 9px;
+            background: linear-gradient(135deg, #6366f1, #7c3aed);
+            font-size: 13px;
+        }
+
+        .profile-actions button:hover {
+            background: linear-gradient(135deg, #4f46e5, #6d28d9);
+        }
+
+        .back-home-link {
+            padding: 10px 0;
+            color: #6366f1;
+            font-size: 13px;
+            font-weight: 650;
+            text-decoration: none;
+        }
+
+        .back-home-link:hover {
+            color: #4338ca;
+            text-decoration: underline;
+        }
+
+        .profile-footer {
+            padding: 22px 0 5px;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 11px;
+        }
+
+        @media (max-width: 600px) {
+            .profile-intro h1 {
+                font-size: 27px;
+            }
+
+            .profile-banner {
+                gap: 14px;
+                padding: 20px;
+            }
+
+            .profile-avatar {
+                flex-basis: 58px;
+                width: 58px;
+                height: 58px;
+                border-radius: 17px;
+                font-size: 25px;
+            }
+
+            .profile-banner h2 {
+                font-size: 18px;
+                overflow-wrap: anywhere;
+            }
+
+            .profile-form-card {
+                padding: 21px 17px;
+            }
+
+            .profile-form-heading h2 {
+                font-size: 19px;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+                gap: 19px;
+            }
+
+            .profile-field-full {
+                grid-column: auto;
+            }
+
+            .profile-actions {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .profile-actions button {
+                width: 100%;
+            }
+
+            .back-home-link {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top navigation -->
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            <span>ProjectFinder</span>
+        </div>
+
+        <div class="header-right">
+            <span class="workspace-label">Student Workspace</span>
+            <div class="user-avatar">R</div>
+        </div>
+    </header>
+
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <p class="sidebar-heading">MAIN MENU</p>
+
+        <a href="{{ url_for('home') }}" class="menu-item">
+            <span class="nav-icon">⌂</span>
+            <span>Home</span>
+        </a>
+
+        <a href="{{ url_for('profile') }}"
+           class="menu-item active">
+            <span class="nav-icon">♙</span>
+            <span>My Profile</span>
+        </a>
+
+        <a href="{{ url_for('show_recommendations') }}"
+           class="menu-item">
+            <span class="nav-icon">✧</span>
+            <span>Recommended Projects</span>
+        </a>
+
+        <a href="{{ url_for('saved_projects') }}"
+           class="menu-item">
+            <span class="nav-icon">♡</span>
+            <span>Saved Projects</span>
+        </a>
+
+        <a href="{{ url_for('history') }}"
+           class="menu-item">
+            <span class="nav-icon">◷</span>
+            <span>History</span>
+        </a>
+
+        <p class="sidebar-heading sidebar-heading-bottom">
+            MANAGEMENT
+        </p>
+
+        <a href="{{ url_for('admin') }}" class="menu-item">
+            <span class="nav-icon">⚙</span>
+            <span>Admin Dashboard</span>
+        </a>
+    </aside>
+
+
+    <!-- Main profile content -->
+    <main class="main-content">
+        <div class="profile-page">
+
+            <section class="profile-intro">
+                <span class="eyebrow">YOUR PERSONAL SPACE</span>
+                <h1>My Profile</h1>
+                <p>Manage your details and help personalize your project recommendations.</p>
+            </section>
+
+
+            <!-- Profile banner -->
+            <section class="profile-banner">
+                <div class="profile-avatar">
+                    {{ (profile.get('name', 'S') or 'S')[0] | upper }}
+                </div>
+
+                <div>
+                    <h2>{{ profile.get('name', 'Student') or 'Student' }}</h2>
+                    <p>ProjectFinder Student Profile</p>
+                    <span class="profile-status">✦ Personalize your journey</span>
+                </div>
+            </section>
+
+
+            <!-- Profile form -->
+            <section class="profile-form-card">
+
+                <div class="profile-form-heading">
+                    <div>
+                        <h2>Profile Information</h2>
+                        <p>
+                            Keep your information up to date for more relevant
+                            project suggestions.
+                        </p>
+                    </div>
+
+                    <div class="profile-heading-icon">♙</div>
+                </div>
+
+
+                {% if message %}
+                    <div class="profile-message" role="status">
+                        ✓ {{ message }}
+                    </div>
+                {% endif %}
+
+
+                <form method="POST" action="{{ url_for('profile') }}">
+
+                    <div class="profile-grid">
+
+                        <div class="profile-field">
+                            <label for="name">Full Name *</label>
+                            <input
+                                id="name"
+                                name="name"
+                                type="text"
+                                value="{{ profile.get('name', '') }}"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="profile-field">
+                            <label for="email">Email Address</label>
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                value="{{ profile.get('email', '') }}"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                            >
+                        </div>
+
+
+                        <div class="profile-field profile-field-full">
+                            <label for="skills">Your Skills</label>
+                            <textarea
+                                id="skills"
+                                name="skills"
+                                rows="3"
+                                placeholder="Python, SQL, Flask, HTML, CSS"
+                            >{{ profile.get('skills', '') }}</textarea>
+                            <small>
+                                Enter the programming languages, tools, and
+                                technologies you know.
+                            </small>
+                        </div>
+
+
+                        <div class="profile-field">
+                            <label for="domain">Preferred Domain</label>
+                            <input
+                                id="domain"
+                                name="domain"
+                                type="text"
+                                value="{{ profile.get('domain', '') }}"
+                                placeholder="e.g. Web Development"
+                            >
+                        </div>
+
+
+                        <div class="profile-field">
+                            <label for="experience">Experience Level</label>
+                            <select id="experience" name="experience">
+                                {% for level in ['Beginner', 'Intermediate', 'Advanced'] %}
+                                    <option
+                                        value="{{ level }}"
+                                        {% if profile.get('experience', 'Beginner')|lower == level|lower %}
+                                            selected
+                                        {% endif %}
+                                    >
+                                        {{ level }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-actions">
+                        <a class="back-home-link"
+                           href="{{ url_for('home') }}">
+                            ← Back to Home
+                        </a>
+
+                        <button type="submit">
+                            Save Profile&nbsp; →
+                        </button>
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            <footer class="profile-footer">
+                ProjectFinder · Discover. Learn. Build.
+            </footer>
+
+        </div>
+    </main>
+
+</body>
+</html>

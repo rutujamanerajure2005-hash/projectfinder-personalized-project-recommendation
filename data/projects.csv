@@ -1,0 +1,51 @@
+project_id,project_name,domain,description,skills,technologies,difficulty,duration
+P001,Air Quality Prediction,AI/ML,Predict air quality using machine learning,Python Pandas Machine Learning,Flask Scikit-learn,Medium,4 weeks
+P002,Student Performance Prediction,AI/ML,Predict student academic performance,Python Pandas Machine Learning,Scikit-learn Flask,Medium,3 weeks
+P003,AI Resume Analyzer,AI/ML,Analyze resumes using natural language processing,Python NLP Machine Learning,Flask NLTK,Hard,5 weeks
+P004,Expense Tracker,Web Development,Build a web application to manage personal expenses,Python SQL HTML CSS,Flask MySQL,Easy,3 weeks
+P005,Student Management System,Web Development,Manage student information using a web application,Python SQL HTML CSS,Flask MySQL,Easy,4 weeks
+P006,Fake News Detection,AI/ML,Detect fake news using machine learning and text analysis,Python NLP Machine Learning,Scikit-learn Flask,Hard,5 weeks
+P007,House Price Prediction,Data Science,Predict house prices using machine learning,Python Pandas Machine Learning,Scikit-learn Jupyter,Medium,4 weeks
+P008,Sales Data Analysis,Data Science,Analyze sales data and generate business insights,Python Pandas SQL,Power BI Pandas MySQL,Easy,3 weeks
+P009,Chatbot,AI/ML,Build an intelligent chatbot using natural language processing,Python NLP Machine Learning,Flask NLTK,Medium,4 weeks
+P010,Library Management System,Web Development,Manage books students and library transactions,Python SQL HTML CSS,Flask MySQL,Easy,3 weeks
+P011,Crop Recommendation System,Agriculture,Recommend suitable crops based on soil and environmental conditions,Python Pandas Machine Learning,Flask Scikit-learn,Medium,4 weeks
+P012,Plant Disease Detection,AI/ML,Identify plant diseases from leaf images,Python Deep Learning Image Processing,TensorFlow OpenCV Flask,Hard,6 weeks
+P013,Heart Disease Prediction,AI/ML,Predict heart disease risk using patient data,Python Pandas Machine Learning,Scikit-learn Flask,Medium,4 weeks
+P014,Diabetes Prediction,AI/ML,Predict diabetes risk using medical data,Python Pandas Machine Learning,Scikit-learn Flask,Medium,3 weeks
+P015,Movie Recommendation System,AI/ML,Recommend movies based on user preferences,Python Pandas Recommendation Systems,Scikit-learn Flask,Medium,4 weeks
+P016,Sentiment Analysis,AI/ML,Analyze opinions in product reviews and text,Python NLP Machine Learning,NLTK Scikit-learn Flask,Medium,4 weeks
+P017,Email Spam Detection,AI/ML,Classify emails as spam or legitimate messages,Python NLP Machine Learning,Scikit-learn NLTK,Easy,3 weeks
+P018,Handwritten Digit Recognition,AI/ML,Recognize handwritten digits using image classification,Python Deep Learning Image Processing,TensorFlow Keras,Medium,4 weeks
+P019,Customer Churn Prediction,Data Science,Predict which customers may stop using a service,Python Pandas Machine Learning,Scikit-learn Jupyter,Medium,4 weeks
+P020,Customer Segmentation,Data Science,Group customers based on purchasing behavior,Python Pandas Clustering,Scikit-learn Matplotlib,Medium,4 weeks
+P021,Stock Market Data Analysis,Data Science,Analyze historical stock prices and market trends,Python Pandas Data Analysis,NumPy Matplotlib Jupyter,Medium,4 weeks
+P022,Weather Data Analysis,Data Science,Analyze weather records and identify trends,Python Pandas Statistics,NumPy Matplotlib Jupyter,Easy,3 weeks
+P023,IPL Data Analysis,Data Science,Analyze cricket match and player performance data,Python Pandas Data Visualization,Matplotlib Seaborn Jupyter,Easy,3 weeks
+P024,Data Cleaning and Visualization,Data Science,Clean datasets and present insights through charts,Python Pandas Data Visualization,NumPy Matplotlib Seaborn,Easy,3 weeks
+P025,Employee Attrition Analysis,Data Science,Study employee data to identify attrition patterns,Python Pandas Statistics,Power BI Pandas MySQL,Medium,4 weeks
+P026,Online Quiz Application,Web Development,Create a web application for quizzes and scoring,Python HTML CSS JavaScript,Flask MySQL,Easy,3 weeks
+P027,To-Do List Application,Web Development,Manage daily tasks with status and deadlines,Python HTML CSS JavaScript,Flask MySQL,Easy,2 weeks
+P028,Online Food Ordering System,Web Development,Build a website for browsing menus and placing orders,Python SQL HTML CSS,Flask MySQL,Medium,5 weeks
+P029,Job Portal,Web Development,Connect job seekers with employers through a website,Python SQL HTML CSS,Flask MySQL,Medium,5 weeks
+P030,Online Examination System,Web Development,Conduct online tests and display examination results,Python SQL HTML CSS,Flask MySQL,Medium,5 weeks
+P031,Hospital Management System,Web Development,Manage patient records appointments and billing,Python SQL HTML CSS,Flask MySQL,Medium,5 weeks
+P032,Event Management System,Web Development,Manage events registrations and schedules,Python SQL HTML CSS,Flask MySQL,Easy,4 weeks
+P033,Online Bookstore,Web Development,Create an online catalog for browsing and ordering books,Python SQL HTML CSS,Flask MySQL,Medium,4 weeks
+P034,Personal Portfolio Website,Web Development,Showcase skills projects and professional achievements,HTML CSS JavaScript,HTML CSS JavaScript,Easy,2 weeks
+P035,Weather Forecast Application,Web Development,Display weather information using a weather API,Python HTML CSS API,Flask REST API,Medium,3 weeks
+P036,Library Book Recommendation System,AI/ML,Recommend books based on interests and reading history,Python Pandas Machine Learning,Scikit-learn Flask,Medium,4 weeks
+P037,Face Mask Detection,AI/ML,Detect whether people are wearing face masks in images,Python Deep Learning Image Processing,TensorFlow OpenCV,Hard,5 weeks
+P038,Vehicle Number Plate Detection,AI/ML,Detect and extract vehicle number plates from images,Python Image Processing OCR,OpenCV Tesseract,Hard,5 weeks
+P039,Text Summarization Tool,AI/ML,Generate concise summaries of longer text documents,Python NLP Machine Learning,NLTK Transformers Flask,Hard,5 weeks
+P040,Language Detection System,AI/ML,Identify the language of a given text,Python NLP Machine Learning,Scikit-learn Flask,Easy,3 weeks
+P041,Personal Finance Dashboard,Data Science,Visualize income expenses and monthly spending patterns,Python Pandas Data Visualization,Plotly Streamlit,Medium,4 weeks
+P042,Power Consumption Analysis,Data Science,Analyze electricity usage and identify consumption patterns,Python Pandas Statistics,Matplotlib Seaborn Jupyter,Medium,4 weeks
+P043,Traffic Accident Analysis,Data Science,Explore accident records to identify risk patterns,Python Pandas Data Visualization,NumPy Matplotlib Power BI,Medium,4 weeks
+P044,Airline Passenger Analysis,Data Science,Analyze passenger trends and airline performance,Python Pandas Statistics,Seaborn Jupyter SQL,Easy,3 weeks
+P045,Inventory Management System,Web Development,Track stock levels suppliers and product movements,Python SQL HTML CSS,Flask MySQL,Medium,4 weeks
+P046,Attendance Management System,Web Development,Record student attendance and generate reports,Python SQL HTML CSS,Flask MySQL,Easy,3 weeks
+P047,URL Phishing Detection,AI/ML,Classify suspicious URLs using machine learning features,Python Pandas Machine Learning,Scikit-learn Flask,Medium,4 weeks
+P048,Loan Approval Prediction,AI/ML,Predict loan approval outcomes from applicant data,Python Pandas Machine Learning,Scikit-learn Flask,Medium,4 weeks
+P049,Resume Keyword Matcher,AI/ML,Compare resume skills with job description requirements,Python NLP Text Processing,Flask NLTK Scikit-learn,Medium,4 weeks
+P050,Student Feedback Analysis,Data Science,Analyze student feedback and summarize common themes,Python Pandas NLP,NLTK Matplotlib Jupyter,Medium,3 weeks
